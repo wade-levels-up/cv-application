@@ -3,6 +3,7 @@ import '/src/styles/Resume.css'
 
 export default function Resume({ generalInfo, experienceInfo, educationInfo, skills }) {
     return (
+     <>
         <div className='resume-container'>
             <div className='overlay'></div>
             <div className='resume-header'>
@@ -59,7 +60,7 @@ export default function Resume({ generalInfo, experienceInfo, educationInfo, ski
                             <ul>
                                 {entry.details.map((item) => {
                                     return (
-                                        <li>{item}</li>
+                                        <li key={item.id}>{item}</li>
                                     )
                                 })}
                             </ul>
@@ -73,5 +74,6 @@ export default function Resume({ generalInfo, experienceInfo, educationInfo, ski
                 <p>{skills.join(', ')}.</p>
             </div>
         </div>
+     </>
     )
 }

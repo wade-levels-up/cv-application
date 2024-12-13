@@ -1,15 +1,28 @@
 .resume-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     font-family: sans-serif;
-    background-color: rgb(255, 255, 255);
+    background: url(/src/assets/joao-vitor-duarte-k4Lt0CjUnb0-unsplash.jpg);
+    background-color: aliceblue;
     padding: 15px;
     width: 595px;
     min-height: 842px;
     max-height: fit-content;
     line-height: 1.5;
     position: relative;
+}
+
+h1 {
+    min-height: 3rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1rem;
 }
 
 /* Overlay idea, create a pulsing red line showing the cut-off point for an A4 page */
@@ -38,8 +51,12 @@
 
 .resume-header div {
     display: flex;
+    max-width: 595px;
     justify-content: space-evenly;
     padding: 10px;
+    flex-wrap: wrap;
+    text-wrap: wrap;
+    hyphens: auto;
 }
 
 /* Work Experience, Education & Skills */
