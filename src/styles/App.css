@@ -1,0 +1,6 @@
+.main-layout {
+    display: flex;
+    background-color: cadetblue;
+    width: 100vw;
+    height: 100vh;
+}
