@@ -3,7 +3,7 @@ import '/src/styles/Details.css'
 
 export default function Details() {
     return (
-        <div>
+        <div className='details-container'>
             I am the details
         </div>
     )

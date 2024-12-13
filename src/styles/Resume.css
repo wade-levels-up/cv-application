@@ -1,0 +1,45 @@
+.resume-container {
+    font-family: sans-serif;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    width: 595px;
+    height: 842px;
+    line-height: 1.5;
+}
+
+/* Header */
+
+.resume-header {
+    text-align: center;
+}
+
+.resume-header div {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+/* Work Experience */
+
+.resume-experience {
+    margin-top: 1rem;
+}
+
+.job-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card div:nth-child(1),
+.job-card div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-card li {
+    list-style: disc;
+    margin-left: 1rem;
+}
+
+/* Education */
