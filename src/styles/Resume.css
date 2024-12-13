@@ -1,11 +1,34 @@
 .resume-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     font-family: sans-serif;
     background-color: rgb(255, 255, 255);
     padding: 15px;
     width: 595px;
-    height: 842px;
+    min-height: 842px;
+    max-height: fit-content;
     line-height: 1.5;
+    position: relative;
 }
+
+/* Overlay idea, create a pulsing red line showing the cut-off point for an A4 page */
+
+/* .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 595px;
+    height: 842px;
+    border-bottom: 2px dashed red;
+    animation: pulseInOut 1.5s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+@keyframes pulseInOut {
+    from { opacity: 1 }
+    50% { opacity: 0 }
+    to { opacity: 1 }
+} */
 
 /* Header */
 
@@ -19,27 +42,27 @@
     padding: 10px;
 }
 
-/* Work Experience */
+/* Work Experience, Education & Skills */
 
-.resume-experience {
+.resume-experience, 
+.resume-education, 
+.resume-skills {
     margin-top: 1rem;
 }
 
-.job-card {
+.card {
     display: flex;
     flex-direction: column;
 }
 
-.job-card div:nth-child(1),
-.job-card div:nth-child(2) {
+.card div:nth-child(1),
+.card div:nth-child(2) {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.job-card li {
+.card li {
     list-style: disc;
     margin-left: 1rem;
 }
-
-/* Education */
