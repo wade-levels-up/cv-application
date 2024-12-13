@@ -60,7 +60,7 @@ export default function Resume({ generalInfo, experienceInfo, educationInfo, ski
                             <ul>
                                 {entry.details.map((item) => {
                                     return (
-                                        <li key={item.id}>{item}</li>
+                                        <li key={crypto.randomUUID()}>{item}</li>
                                     )
                                 })}
                             </ul>

@@ -57,6 +57,13 @@ export default function App() {
     setExperienceInfo(experienceInfo.filter((job) => job.id !== id));
   }
 
+  function handleAddExperienceInfo(newJob) {
+    const responseArray = newJob.response.split(', ');
+    const achieveArray = newJob.achievements.split(', ');
+    const newJobWithId = { id: crypto.randomUUID(), ...newJob, response: responseArray, achievements: achieveArray }
+    setExperienceInfo([...experienceInfo, newJobWithId])
+  }
+
   const [educationInfo, setEducationInfo] = useState([
     {
       id: 0,
@@ -87,6 +94,7 @@ export default function App() {
         educationInfo={educationInfo} skills={skills} 
         onChange={handleSetGeneralInfo}
         onRemoveJob={handleRemoveExperienceInfo}
+        onAddJob={handleAddExperienceInfo}
       />
       <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} skills={skills} />
     </div>
