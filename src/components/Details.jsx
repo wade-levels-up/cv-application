@@ -1,8 +1,12 @@
 import '/src/styles/Details.css'
+import Icon from '@mdi/react';
+import { mdiDelete } from '@mdi/js';
 
-export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange }) {
+
+export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemoveJob }) {
     return (
         <div className='details-container'>
+
             <div className='details-info'>
                 <h2>Personal</h2>
                 <form action='' method=''>
@@ -28,6 +32,25 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                     </div> */}
                 </form>
             </div>
+
+            <div className='experience-info'>
+                <h2>Work Experience</h2>
+                <ul>
+                    {experienceInfo.map((job) => {
+                        return (
+                            <li key={job.id}>{job.company} | {job.title} 
+                                <button onClick={() => onRemoveJob(job.id)}>
+                                    <Icon path={mdiDelete} size={1} />
+                                </button>
+                            </li>
+                        )
+                    })}
+                    <li>
+                        + Add New
+                    </li>
+                </ul>
+            </div>
+
         </div>
     )
 }

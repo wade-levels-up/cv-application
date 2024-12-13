@@ -1,8 +1,11 @@
 .details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: fit-content;
 }
 
-.details-info {
+.details-info, .experience-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,4 +46,28 @@ form button {
 }
 form button:hover, button:focus {
     outline: 2px solid black;
+}
+
+.experience-info li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.experience-info button {
+    background-color: powderblue;
+    border: none;
+    border-radius: 50%;
+    padding: 3px;
+    transition: 500ms;
+    width: 32px;
+    height: 32px;
+}
+
+.experience-info li button:hover {
+    background-color: rgb(141, 180, 185);
+    border-radius: 50%;
+    padding: 3px;
+    transform: rotate(360deg);
 }

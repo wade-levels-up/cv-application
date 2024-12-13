@@ -34,8 +34,28 @@ export default function App() {
         'Achievement #1',
         'Achievement #2'
       ]
+    },
+    {
+      id: 1,
+      company: 'MM Electrical Merchandising',
+      startDate: 'Oct.2017',
+      endDate: 'Nov.2023',
+      title: 'Internal Sales',
+      location: 'Melbourne',
+      response: [
+        'Serve customers',
+        'Count stock'
+      ],
+      achievements: [
+        'Achievement #1',
+        'Achievement #2'
+      ]
     }
   ])
+
+  function handleRemoveExperienceInfo(id) {
+    setExperienceInfo(experienceInfo.filter((job) => job.id !== id));
+  }
 
   const [educationInfo, setEducationInfo] = useState([
     {
@@ -66,6 +86,7 @@ export default function App() {
         generalInfo={generalInfo} experienceInfo={experienceInfo} 
         educationInfo={educationInfo} skills={skills} 
         onChange={handleSetGeneralInfo}
+        onRemoveJob={handleRemoveExperienceInfo}
       />
       <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} skills={skills} />
     </div>
