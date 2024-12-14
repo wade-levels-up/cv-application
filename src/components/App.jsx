@@ -20,10 +20,10 @@ export default function App() {
 
   const [experienceInfo, setExperienceInfo] = useState([
     {
-      id: 0,
+      id: crypto.randomUUID(),
       company: 'E-Corp',
-      startDate: 'Oct.2017',
-      endDate: 'Nov.2023',
+      startDate: '2017-10',
+      endDate: '2022-11',
       title: 'Chief Technical Officer',
       location: 'New York',
       response: [
@@ -36,10 +36,10 @@ export default function App() {
       ]
     },
     {
-      id: 1,
+      id: crypto.randomUUID(),
       company: 'MM Electrical Merchandising',
-      startDate: 'Oct.2017',
-      endDate: 'Nov.2023',
+      startDate: '2017-10',
+      endDate: '2019-11',
       title: 'Internal Sales',
       location: 'Melbourne',
       response: [
@@ -58,10 +58,25 @@ export default function App() {
   }
 
   function handleAddExperienceInfo(newJob) {
-    const responseArray = newJob.response.split(', ');
-    const achieveArray = newJob.achievements.split(', ');
-    const newJobWithId = { id: crypto.randomUUID(), ...newJob, response: responseArray, achievements: achieveArray }
+    const newJobWithId = { 
+      ...newJob, id: crypto.randomUUID(),
+       response: newJob.response.split(', '),
+        achievements: newJob.achievements.split(', ') 
+      }
     setExperienceInfo([...experienceInfo, newJobWithId])
+  }
+
+  function handleUpdateExperienceInfo(job) {
+    setExperienceInfo(experienceInfo.map((item) => {
+      if (item.id === job.id) {
+        return { 
+          ...job,
+           response: job.response.split(', '),
+            achievements: job.achievements.split(', ') 
+          };
+      }
+      return item;
+    }))
   }
 
   const [educationInfo, setEducationInfo] = useState([
@@ -95,6 +110,7 @@ export default function App() {
         onChange={handleSetGeneralInfo}
         onRemoveJob={handleRemoveExperienceInfo}
         onAddJob={handleAddExperienceInfo}
+        onUpdateJob={handleUpdateExperienceInfo}
       />
       <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} skills={skills} />
     </div>
