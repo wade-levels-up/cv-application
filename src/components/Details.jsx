@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '/src/styles/Details.css'
 import WorkExpForm from './WorkExpForm';
 import Icon from '@mdi/react';
-import { mdiDelete, mdiPlus  } from '@mdi/js';
+import { mdiDelete, mdiPlus, mdiPencil  } from '@mdi/js';
 
 
 export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemoveJob, onAddJob, onUpdateJob }) {
@@ -46,10 +46,6 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                         <label htmlFor='location'>Location </label>
                         <input type='text' name='location' id='location' value={generalInfo.location} onChange={onChange} />
                     </div>
-                    {/* <div>
-                        <button type="submit" value="Submit">Submit</button>
-                        <button  type='reset'>Reset</button>
-                    </div> */}
                 </form>
             </div>
 
@@ -62,10 +58,13 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                             formStatus = 'visible';
                         }
                         return (
-                            <li key={job.id} onClick={() => handleActiveForm(job.id)}>
+                            <li key={job.id}>
                                 <div className='workExpItem'>
-                                    {job.company}
-                                    <button onClick={() => onRemoveJob(job.id)} aria-label={`Delete ${job.company} from work experience list    `}>
+                                    <span>{job.company}</span>
+                                    <button onClick={() => handleActiveForm(job.id)} aria-label={`Edit ${job.company} entry in work experience list`} >
+                                        <Icon path={mdiPencil} size={1} />
+                                    </button>
+                                    <button onClick={() => onRemoveJob(job.id)} aria-label={`Delete ${job.company} from work experience list`} >
                                         <Icon path={mdiDelete} size={1} />
                                     </button>
                                 </div>
@@ -75,7 +74,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                     })}
                     <li onClick={formVisibilityHandler}>
                         <div className='workExpItem'>
-                            Add New Workplace
+                            <span>Add New Workplace</span>
                             <button aria-label={'Add new job to work experience list'} onClick={formVisibilityHandler}>
                                 <Icon path={mdiPlus} size={1} />
                             </button>

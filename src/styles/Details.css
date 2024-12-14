@@ -31,10 +31,6 @@ form input {
     border: none;
 }
 
-form input[type="checkbox"] {
-    width: 10%;
-}
-
 .textarea-container {
     display: flex;
     flex-direction: column;
@@ -76,7 +72,8 @@ form button:hover, button:focus {
 .workExpItem {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 8px;
     margin-top: 10px;
     border: 1px solid rgb(214, 242, 246, 0.5);
     padding: 6px 6px 6px 18px;
@@ -84,9 +81,12 @@ form button:hover, button:focus {
     transition: 300ms background-color ease-in;
 }
 
+.workExpItem span {
+    flex-grow: 1;
+}
+
 .workExpItem:hover {
     background-color: whitesmoke;
-    cursor: pointer;
 }
 
 .experience-info button {
@@ -94,7 +94,7 @@ form button:hover, button:focus {
     border: none;
     border-radius: 50%;
     padding: 3px;
-    transition: 500ms;
+    transition: 1s transform cubic-bezier(0.23, 1, 0.320, 1);
     width: 32px;
     height: 32px;
     will-change: transform;
