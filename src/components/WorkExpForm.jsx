@@ -11,7 +11,7 @@ const blankWExpObj = {
     achievements: []
   }
 
-export default function WorkExpForm({ onAddJob, onRemoveJob, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
+export default function WorkExpForm({ onAddJob, hideForms, onRemoveJob, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
     const [formState, setFormState] = useState(baseValues);
 
     function handleInput(e) {
@@ -57,7 +57,7 @@ export default function WorkExpForm({ onAddJob, onRemoveJob, onUpdateJob, formVi
             <input type="hidden" name='id' id="id" value={formState.id}></input>
             <div>
                 <label htmlFor='company'>Company </label>
-                <input value={formState.company} onInput={handleInput} type='text' name='company' id='company' placeholder='Enter company name' required/>
+                <input value={formState.company} onInput={handleInput} type='text' name='company' id='company' placeholder='Enter company name' required maxLength='50'/>
             </div>
             <div>
                 <label htmlFor='startDate'>Start Date </label>
@@ -69,7 +69,7 @@ export default function WorkExpForm({ onAddJob, onRemoveJob, onUpdateJob, formVi
             </div>
             <div>
                 <label htmlFor='title'>Job Title </label>
-                <input value={formState.title} onInput={handleInput} type='text' name='title' id='title' placeholder='Enter title of position held' required/>
+                <input value={formState.title} onInput={handleInput} type='text' name='title' id='title' placeholder='Enter title of position held' required maxLength='50'/>
             </div>
             <div>
                 <label htmlFor='location'>Location </label>
@@ -84,7 +84,7 @@ export default function WorkExpForm({ onAddJob, onRemoveJob, onUpdateJob, formVi
                 <textarea value={achieveArr} onInput={handleInput} rows='4' cols='32' wrap='hard' name='achievements' id='achievements' placeholder={`Enter highlights, milestones or goals achieved in your job separated by commas and spaces.`}></textarea>
             </div>
             <div className='submit-container'>
-                <button type="submit" value="Submit">Submit</button>
+                <button onClick={hideForms} type="submit" value="Submit">Submit</button>
             </div>
         </form>
     )

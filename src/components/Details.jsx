@@ -12,7 +12,11 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
 
     function formVisibilityHandler() {
         setActiveEditWorkExpID(null);
-        newFormVisibility === 'hidden' ? setNewFormVisibility('visible') : setNewFormVisibility('hidden');
+        if (newFormVisibility === 'hidden') {
+            setNewFormVisibility('visible');
+        } else {
+            setNewFormVisibility('hidden');
+        }
     }
 
     function handleActiveForm(id) {
@@ -22,6 +26,11 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
         } else {
             setActiveEditWorkExpID(null);
         }
+    }
+
+    function hideForms() {
+        setNewFormVisibility('hidden');
+        setActiveEditWorkExpID(null)
     }
 
     return (
@@ -68,7 +77,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                                         <Icon path={mdiDelete} size={1} />
                                     </button>
                                 </div>
-                                <WorkExpForm onAddJob={onAddJob} onRemoveJob={onRemoveJob} formVisibility={formStatus} baseValues={job} onUpdateJob={onUpdateJob}/>
+                                <WorkExpForm onAddJob={onAddJob} hideForms={hideForms} onRemoveJob={onRemoveJob} formVisibility={formStatus} baseValues={job} onUpdateJob={onUpdateJob}/>
                             </li>
                         )
                     })}
@@ -81,7 +90,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                         </div>
                     </li>
                 </ul>
-                <WorkExpForm onAddJob={onAddJob} formVisibility={newFormVisibility}/>
+                <WorkExpForm onAddJob={onAddJob} formVisibility={newFormVisibility} hideForms={hideForms}/>
             </div>
 
         </div>
