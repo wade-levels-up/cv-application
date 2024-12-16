@@ -5,7 +5,7 @@ import Icon from '@mdi/react';
 import { mdiDelete, mdiPlus, mdiPencil  } from '@mdi/js';
 
 
-export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemoveJob, onAddJob, onUpdateJob }) {
+export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemove, onAddJob, onUpdateJob }) {
     
     const [newFormVisibility, setNewFormVisibility] = useState('hidden');
     const [activeEditWorkExpID, setActiveEditWorkExpID] = useState(null);
@@ -36,7 +36,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
     return (
         <div className='details-container'>
 
-            <div className='details-info'>
+            <div className='details-sub-container'>
                 <h2>Personal</h2>
                 <form action='' method=''>
                     <div>
@@ -58,7 +58,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                 </form>
             </div>
 
-            <div className='experience-info'>
+            <div className='details-sub-container'>
                 <h2>Work Experience</h2>
                 <ul>
                     {experienceInfo.map((job) => {
@@ -68,21 +68,21 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                         }
                         return (
                             <li key={job.id}>
-                                <div className='workExpItem'>
+                                <div className='detailsTab'>
                                     <span>{job.company}</span>
                                     <button onClick={() => handleActiveForm(job.id)} aria-label={`Edit ${job.company} entry in work experience list`} >
                                         <Icon path={mdiPencil} size={1} />
                                     </button>
-                                    <button onClick={() => onRemoveJob(job.id)} aria-label={`Delete ${job.company} from work experience list`} >
+                                    <button onClick={() => onRemove(job.id, 'work experience')} aria-label={`Delete ${job.company} from work experience list`} >
                                         <Icon path={mdiDelete} size={1} />
                                     </button>
                                 </div>
-                                <WorkExpForm onAddJob={onAddJob} hideForms={hideForms} onRemoveJob={onRemoveJob} formVisibility={formStatus} baseValues={job} onUpdateJob={onUpdateJob}/>
+                                <WorkExpForm onAddJob={onAddJob} hideForms={hideForms} formVisibility={formStatus} baseValues={job} onUpdateJob={onUpdateJob}/>
                             </li>
                         )
                     })}
                     <li onClick={formVisibilityHandler}>
-                        <div className='workExpItem'>
+                        <div className='detailsTab'>
                             <span>Add New Workplace</span>
                             <button aria-label={'Add new job to work experience list'} onClick={formVisibilityHandler}>
                                 <Icon path={mdiPlus} size={1} />
@@ -91,6 +91,35 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                     </li>
                 </ul>
                 <WorkExpForm onAddJob={onAddJob} formVisibility={newFormVisibility} hideForms={hideForms}/>
+            </div>
+
+            <div className='details-sub-container'>
+                <h2>Education</h2>
+                <ul>
+                    {educationInfo.map((item) => {
+                        return (
+                            <li key={item.id}>
+                                <div className='detailsTab'>
+                                    <span>{item.school}</span>
+                                    <button onClick={() => handleActiveForm(item.id)} aria-label={`Edit ${item.company} entry in work experience list`} >
+                                        <Icon path={mdiPencil} size={1} />
+                                    </button>
+                                    <button onClick={() => onRemove(item.id, 'education')} aria-label={`Delete ${item.company} from work experience list`} >
+                                        <Icon path={mdiDelete} size={1} />
+                                    </button>
+                                </div>
+                            </li>
+                        )
+                    })}
+                    <li onClick={formVisibilityHandler}>
+                        <div className='detailsTab'>
+                            <span>Add New Education</span>
+                            <button aria-label={'Add new education to work education list'} onClick={formVisibilityHandler}>
+                                <Icon path={mdiPlus} size={1} />
+                            </button>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
         </div>

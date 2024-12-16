@@ -5,7 +5,7 @@
     width: fit-content;
 }
 
-.details-info, .experience-info {
+.details-sub-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +69,7 @@ form button:hover, button:focus {
     color: whitesmoke;
 }
 
-.workExpItem {
+.detailsTab {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -81,15 +81,15 @@ form button:hover, button:focus {
     transition: 300ms background-color ease-in;
 }
 
-.workExpItem span {
+.detailsTab span {
     flex-grow: 1;
 }
 
-.workExpItem:hover {
+.detailsTab:hover {
     background-color: whitesmoke;
 }
 
-.experience-info button {
+.details-sub-container button {
     background-color: powderblue;
     border: none;
     border-radius: 50%;
@@ -100,7 +100,7 @@ form button:hover, button:focus {
     will-change: transform;
 }
 
-.experience-info li button:hover, button:focus {
+.details-sub-container li button:hover, button:focus {
     transform: rotate(360deg);
     cursor: pointer;
 }

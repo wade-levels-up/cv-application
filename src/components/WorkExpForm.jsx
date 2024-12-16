@@ -11,7 +11,7 @@ const blankWExpObj = {
     achievements: []
   }
 
-export default function WorkExpForm({ onAddJob, hideForms, onRemoveJob, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
+export default function WorkExpForm({ onAddJob, hideForms, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
     const [formState, setFormState] = useState(baseValues);
 
     function handleInput(e) {

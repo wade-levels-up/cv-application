@@ -53,8 +53,15 @@ export default function App() {
     }
   ])
 
-  function handleRemoveExperienceInfo(id) {
-    setExperienceInfo(experienceInfo.filter((job) => job.id !== id));
+  // Experience
+
+  function handleRemoveInfo(id, type) {
+    if (type === 'work experience') {
+      setExperienceInfo(experienceInfo.filter((item) => item.id !== id));
+    }
+    if (type === 'education') {
+      setEducationInfo(educationInfo.filter((item) => item.id !== id));
+    }
   }
 
   function handleAddExperienceInfo(newJob) {
@@ -81,7 +88,7 @@ export default function App() {
 
   const [educationInfo, setEducationInfo] = useState([
     {
-      id: 0,
+      id: crypto.randomUUID(),
       school: 'University Name',
       startDate: 'Oct.2017',
       endDate: 'Mar.2021',
@@ -108,7 +115,7 @@ export default function App() {
         generalInfo={generalInfo} experienceInfo={experienceInfo} 
         educationInfo={educationInfo} skills={skills} 
         onChange={handleSetGeneralInfo}
-        onRemoveJob={handleRemoveExperienceInfo}
+        onRemove={handleRemoveInfo}
         onAddJob={handleAddExperienceInfo}
         onUpdateJob={handleUpdateExperienceInfo}
       />
