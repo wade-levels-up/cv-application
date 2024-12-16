@@ -71,7 +71,7 @@ export default function Resume({ generalInfo, experienceInfo, educationInfo, ski
             <div className='resume-skills'>
                 <h2>Skills</h2>
                 <hr />
-                <p>{skills.join(', ')}.</p>
+                <p>{generalInfo.skills}</p>
             </div>
         </div>
      </>

@@ -133,6 +133,16 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                 </ul>
             </div>
 
+            <div className='details-sub-container'>
+                <h2>Skills</h2>
+                <form action='' method=''>
+                    <div className='textarea-container'>
+                        <label htmlFor='skills'>Skills </label>
+                        <textarea value={generalInfo.skills} id='skills' name='skills' onInput={onChange}></textarea>
+                    </div>
+                </form>
+            </div>
+
         </div>
     )
 }

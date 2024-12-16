@@ -66,7 +66,7 @@ export default function EducationForm({ onAdd, hideForms, onUpdate, formVisibili
             </div>
             <div>
                 <label htmlFor='location'>Location </label>
-                <input value={formState.location} onInput={handleInput} type='text' name='location' id='location' placeholder='Enter location of job' required/>
+                <input value={formState.location} onInput={handleInput} type='text' name='location' id='location' placeholder='Enter location of education' required/>
             </div>
             <div className='textarea-container'>
                 <label htmlFor='details'>Details </label>

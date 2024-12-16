@@ -10,11 +10,12 @@ export default function App() {
     email: 'not.wades.email@gmail.com',
     phone: '0418 000 3214',
     location: 'Melbourne',
+    skills: 'General planning, staff management, handling money, managing stock levels'
   })
 
   function handleSetGeneralInfo(e) {
     const target = e.target.name;
-    const next = {...generalInfo, [target]: e.target.value}
+    const next = {...generalInfo, [target]: e.target.value }
     setGeneralInfo(next);
   }
 
@@ -141,7 +142,7 @@ export default function App() {
         onAdd={handleAddInfo}
         onUpdate={handleUpdateInfo}
       />
-      <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} skills={skills} />
+      <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
     </div>
   )
 }
