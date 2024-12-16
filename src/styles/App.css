@@ -1,7 +1,7 @@
 .main-layout {
     display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
+    justify-content: center;
+    gap: 50px;
     padding: 20px;
     background-color: rgb(51, 53, 54);
     width: 100vw;
@@ -26,3 +26,38 @@
         margin: 2cm 2cm 2cm 1.5cm;
     }
 }
+
+@media (max-width: 1200px) {
+    .main-layout {
+        flex-direction: column-reverse;
+    }
+
+    .resume {
+        overflow: scroll;
+    }
+
+    .sidebar ul {
+        justify-content: space-evenly;
+        flex-direction: row !important;
+    }
+
+    .details-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100% !important;
+        max-width: 595px;
+    }
+    
+    .details-sub-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: powderblue;
+        width: 100% !important;
+        height: fit-content;
+        border-radius: 15px;
+        padding: 20px;
+    }
+}
+
