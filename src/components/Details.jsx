@@ -9,10 +9,10 @@ import { mdiDelete, mdiPlus, mdiPencil  } from '@mdi/js';
 export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemove, onAdd, onUpdate }) {
     
     const [newFormVisibility, setNewFormVisibility] = useState('hidden');
-    const [activeEditWorkExpID, setActiveEditWorkExpID] = useState(null);
+    const [activeFormID, setActiveFormID] = useState(null);
 
     function formVisibilityHandler() {
-        setActiveEditWorkExpID(null);
+        setActiveFormID(null);
         if (newFormVisibility === 'hidden') {
             setNewFormVisibility('visible');
         } else {
@@ -21,17 +21,17 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
     }
 
     function handleActiveForm(id) {
-        setNewFormVisibility('hidden');
-        if (id !== activeEditWorkExpID) {
-            setActiveEditWorkExpID(id);
+        // setNewFormVisibility('hidden');
+        if (id !== activeFormID) {
+            setActiveFormID(id);
         } else {
-            setActiveEditWorkExpID(null);
+            setActiveFormID(null);
         }
     }
 
     function hideForms() {
         setNewFormVisibility('hidden');
-        setActiveEditWorkExpID(null)
+        setActiveFormID(null)
     }
 
     return (
@@ -64,7 +64,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                 <ul>
                     {experienceInfo.map((job) => {
                         let formStatus = 'hidden';
-                        if (job.id === activeEditWorkExpID) {
+                        if (job.id === activeFormID) {
                             formStatus = 'visible';
                         }
                         return (
@@ -82,22 +82,28 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                             </li>
                         )
                     })}
-                    <li onClick={formVisibilityHandler}>
+                    <li onClick={() => handleActiveForm('new work experience')}>
                         <div className='detailsTab'>
                             <span>Add New Workplace</span>
-                            <button aria-label={'Add new job to work experience list'} onClick={formVisibilityHandler}>
+                            <button aria-label={'Add new job to work experience list'} onClick={() => handleActiveForm('new work experience')}>
                                 <Icon path={mdiPlus} size={1} />
                             </button>
                         </div>
                     </li>
+                    <li> 
+                        <WorkExpForm onAdd={onAdd} formVisibility={activeFormID === 'new work experience' ? 'visible' : 'hidden'} hideForms={hideForms}/>
+                    </li>
                 </ul>
-                <WorkExpForm onAdd={onAdd} formVisibility={newFormVisibility} hideForms={hideForms}/>
             </div>
 
             <div className='details-sub-container'>
                 <h2>Education</h2>
                 <ul>
                     {educationInfo.map((item) => {
+                        let formStatus = 'hidden';
+                        if (item.id === activeFormID) {
+                            formStatus = 'visible';
+                        }
                         return (
                             <li key={item.id}>
                                 <div className='detailsTab'>
@@ -109,19 +115,22 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                                         <Icon path={mdiDelete} size={1} />
                                     </button>
                                 </div>
+                                <EducationForm onAdd={onAdd} hideForms={hideForms} formVisibility={formStatus} baseValues={item} onUpdate={onUpdate}/>
                             </li>
                         )
                     })}
-                    <li onClick={formVisibilityHandler}>
+                    <li>
                         <div className='detailsTab'>
                             <span>Add New Education</span>
-                            <button aria-label={'Add new education to work education list'} onClick={formVisibilityHandler}>
+                            <button aria-label={'Add new education to work education list'} onClick={() => handleActiveForm('new education')}>
                                 <Icon path={mdiPlus} size={1} />
                             </button>
                         </div>
                     </li>
+                    <li>
+                        <EducationForm onAdd={onAdd} formVisibility={activeFormID === 'new education' ? 'visible' : 'hidden'} hideForms={hideForms}/>
+                    </li>
                 </ul>
-                <EducationForm onAdd={onAdd} formVisibility={newFormVisibility} hideForms={hideForms}/>
             </div>
 
         </div>

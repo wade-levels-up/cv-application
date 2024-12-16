@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const blankWExpObj = {
-    id: 'new',
+    id: 'new education',
     school: '',
     startDate: '',
     endDate: '',
@@ -29,10 +29,10 @@ export default function EducationForm({ onAdd, hideForms, onUpdate, formVisibili
         const formData = new FormData(e.target);
         let formObject = Object.fromEntries(formData.entries());
         // setFormState(baseValues);
-        if (baseValues.id === 'new') {
+        if (baseValues.id === 'new education') {
             onAdd(formObject, 'education');
         } else {
-            onUpdate(formObject);
+            onUpdate(formObject, 'education');
         }
         e.target.reset();
     }

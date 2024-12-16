@@ -81,25 +81,39 @@ export default function App() {
     }
   }
 
-  function handleUpdateInfo(job) {
-    setExperienceInfo(experienceInfo.map((item) => {
-      if (item.id === job.id) {
-        return { 
-          ...job,
-           response: job.response.split(', '),
-            achievements: job.achievements.split(', ') 
-          };
-      }
-      return item;
-    }))
+  function handleUpdateInfo(entry , type) {
+    if (type === 'work experience') {
+      setExperienceInfo(experienceInfo.map((item) => {
+        if (item.id === entry.id) {
+          return { 
+            ...entry,
+             response: entry.response.split(', '),
+              achievements: entry.achievements.split(', ') 
+            };
+        }
+        return item;
+      }))
+    }
+
+    if (type === 'education') {
+      setEducationInfo(educationInfo.map((item) => {
+        if (item.id === entry.id) {
+          return { 
+            ...entry,
+             details: entry.details.split(', ')
+            };
+        }
+        return item;
+      }))
+    }
   }
 
   const [educationInfo, setEducationInfo] = useState([
     {
       id: crypto.randomUUID(),
       school: 'University Name',
-      startDate: 'Oct.2017',
-      endDate: 'Mar.2021',
+      startDate: '2020-10',
+      endDate: '2021-03',
       degree: 'Computer Science',
       location: 'City, Street',
       details: [

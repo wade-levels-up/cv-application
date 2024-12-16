@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const blankWExpObj = {
-    id: 'new',
+    id: 'new work experience',
     company: '',
     startDate: '',
     endDate: '',
@@ -33,10 +33,10 @@ export default function WorkExpForm({ onAdd, hideForms, onUpdate, formVisibility
         const formData = new FormData(e.target);
         let formObject = Object.fromEntries(formData.entries());
         // setFormState(baseValues);
-        if (baseValues.id === 'new') {
+        if (baseValues.id === 'new work experience') {
             onAdd(formObject, 'work experience');
         } else {
-            onUpdate(formObject);
+            onUpdate(formObject, 'work experience');
         }
         e.target.reset();
     }
