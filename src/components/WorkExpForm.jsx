@@ -11,7 +11,7 @@ const blankWExpObj = {
     achievements: []
   }
 
-export default function WorkExpForm({ onAddJob, hideForms, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
+export default function WorkExpForm({ onAdd, hideForms, onUpdate, formVisibility, baseValues = blankWExpObj }) {
     const [formState, setFormState] = useState(baseValues);
 
     function handleInput(e) {
@@ -34,9 +34,9 @@ export default function WorkExpForm({ onAddJob, hideForms, onUpdateJob, formVisi
         let formObject = Object.fromEntries(formData.entries());
         // setFormState(baseValues);
         if (baseValues.id === 'new') {
-            onAddJob(formObject);
+            onAdd(formObject, 'work experience');
         } else {
-            onUpdateJob(formObject);
+            onUpdate(formObject);
         }
         e.target.reset();
     }

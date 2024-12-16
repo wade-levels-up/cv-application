@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import '/src/styles/Details.css'
 import WorkExpForm from './WorkExpForm';
+import EducationForm from './EducationForm';
 import Icon from '@mdi/react';
 import { mdiDelete, mdiPlus, mdiPencil  } from '@mdi/js';
 
 
-export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemove, onAddJob, onUpdateJob }) {
+export default function Details({ generalInfo, experienceInfo, educationInfo, skills, onChange, onRemove, onAdd, onUpdate }) {
     
     const [newFormVisibility, setNewFormVisibility] = useState('hidden');
     const [activeEditWorkExpID, setActiveEditWorkExpID] = useState(null);
@@ -77,7 +78,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                                         <Icon path={mdiDelete} size={1} />
                                     </button>
                                 </div>
-                                <WorkExpForm onAddJob={onAddJob} hideForms={hideForms} formVisibility={formStatus} baseValues={job} onUpdateJob={onUpdateJob}/>
+                                <WorkExpForm onAdd={onAdd} hideForms={hideForms} formVisibility={formStatus} baseValues={job} onUpdate={onUpdate}/>
                             </li>
                         )
                     })}
@@ -90,7 +91,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                         </div>
                     </li>
                 </ul>
-                <WorkExpForm onAddJob={onAddJob} formVisibility={newFormVisibility} hideForms={hideForms}/>
+                <WorkExpForm onAdd={onAdd} formVisibility={newFormVisibility} hideForms={hideForms}/>
             </div>
 
             <div className='details-sub-container'>
@@ -120,6 +121,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, sk
                         </div>
                     </li>
                 </ul>
+                <EducationForm onAdd={onAdd} formVisibility={newFormVisibility} hideForms={hideForms}/>
             </div>
 
         </div>

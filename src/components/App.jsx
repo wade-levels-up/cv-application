@@ -64,16 +64,24 @@ export default function App() {
     }
   }
 
-  function handleAddExperienceInfo(newJob) {
-    const newJobWithId = { 
-      ...newJob, id: crypto.randomUUID(),
-       response: newJob.response.split(', '),
-        achievements: newJob.achievements.split(', ') 
-      }
-    setExperienceInfo([...experienceInfo, newJobWithId])
+  function handleAddInfo(entry, type) {
+    let id = crypto.randomUUID();
+    if (type === 'work experience') {
+      const newEntry = { 
+        ...entry, id: id,
+         response: entry.response.split(', '),
+          achievements: entry.achievements.split(', ') 
+        }
+      setExperienceInfo([...experienceInfo, newEntry])
+    }
+
+    if (type === 'education') {
+      const newEntry = { ...entry, id: id, details: entry.details.split(', ') }
+      setEducationInfo([...educationInfo, newEntry])
+    }
   }
 
-  function handleUpdateExperienceInfo(job) {
+  function handleUpdateInfo(job) {
     setExperienceInfo(experienceInfo.map((item) => {
       if (item.id === job.id) {
         return { 
@@ -116,8 +124,8 @@ export default function App() {
         educationInfo={educationInfo} skills={skills} 
         onChange={handleSetGeneralInfo}
         onRemove={handleRemoveInfo}
-        onAddJob={handleAddExperienceInfo}
-        onUpdateJob={handleUpdateExperienceInfo}
+        onAdd={handleAddInfo}
+        onUpdate={handleUpdateInfo}
       />
       <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} skills={skills} />
     </div>

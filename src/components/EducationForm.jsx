@@ -10,7 +10,7 @@ const blankWExpObj = {
     details: []
   }
 
-export default function EducationForm({ onAddJob, hideForms, onRemoveJob, onUpdateJob, formVisibility, baseValues = blankWExpObj }) {
+export default function EducationForm({ onAdd, hideForms, onUpdate, formVisibility, baseValues = blankWExpObj }) {
     const [formState, setFormState] = useState(baseValues);
 
     function handleInput(e) {
@@ -30,9 +30,9 @@ export default function EducationForm({ onAddJob, hideForms, onRemoveJob, onUpda
         let formObject = Object.fromEntries(formData.entries());
         // setFormState(baseValues);
         if (baseValues.id === 'new') {
-            onAddJob(formObject);
+            onAdd(formObject, 'education');
         } else {
-            onUpdateJob(formObject);
+            onUpdate(formObject);
         }
         e.target.reset();
     }
