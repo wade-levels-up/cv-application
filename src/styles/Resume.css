@@ -23,25 +23,6 @@ h2 {
 h3 {
     font-size: 1rem;
 }
-
-/* Overlay idea, create a pulsing red line showing the cut-off point for an A4 page */
-
-/* .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 595px;
-    height: 842px;
-    border-bottom: 2px dashed red;
-    animation: pulseInOut 1.5s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
-}
-
-@keyframes pulseInOut {
-    from { opacity: 1 }
-    50% { opacity: 0 }
-    to { opacity: 1 }
-} */
-
 /* Header */
 
 .resume-header {
@@ -51,11 +32,16 @@ h3 {
 .resume-header div {
     display: flex;
     max-width: 595px;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 10px;
     flex-wrap: wrap;
     text-wrap: wrap;
     hyphens: auto;
+}
+
+.flex-centre {
+    display: flex;
+    gap: 0.2rem;
 }
 
 /* Work Experience, Education & Skills */

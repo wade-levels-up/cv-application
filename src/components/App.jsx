@@ -13,12 +13,6 @@ export default function App() {
     skills: 'General planning, staff management, handling money, managing stock levels'
   })
 
-  function handleSetGeneralInfo(e) {
-    const target = e.target.name;
-    const next = {...generalInfo, [target]: e.target.value }
-    setGeneralInfo(next);
-  }
-
   const [experienceInfo, setExperienceInfo] = useState([
     {
       id: crypto.randomUUID(),
@@ -54,7 +48,39 @@ export default function App() {
     }
   ])
 
-  // Experience
+  const [educationInfo, setEducationInfo] = useState([
+    {
+      id: crypto.randomUUID(),
+      school: 'University Name',
+      startDate: '2020-10',
+      endDate: '2021-03',
+      degree: 'Computer Science',
+      location: 'City, Street',
+      details: [
+        'List your honors like summa cum laude or Economics Honors Society',
+        'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
+        'Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color'
+      ]
+    }
+  ])
+
+  function clearState() {
+    setGeneralInfo({
+      name: '',
+      email: '',
+      phone: '',
+      location: '',
+      skills: ''
+    });
+    setExperienceInfo([]);
+    setEducationInfo([]);
+  }
+
+  function handleSetGeneralInfo(e) {
+    const target = e.target.name;
+    const next = {...generalInfo, [target]: e.target.value }
+    setGeneralInfo(next);
+  }
 
   function handleRemoveInfo(id, type) {
     if (type === 'work experience') {
@@ -109,34 +135,13 @@ export default function App() {
     }
   }
 
-  const [educationInfo, setEducationInfo] = useState([
-    {
-      id: crypto.randomUUID(),
-      school: 'University Name',
-      startDate: '2020-10',
-      endDate: '2021-03',
-      degree: 'Computer Science',
-      location: 'City, Street',
-      details: [
-        'List your honors like summa cum laude or Economics Honors Society',
-        'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
-        'Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color'
-      ]
-    }
-  ])
-
-  const [skills, setSkills] = useState([
-    'Strategic planning', 'strategic partnerships', 'revenue modeling & forecasting', 
-    'retail partnerships', 'sales, & distro', 'contract negotiations', 'account management', 
-    'Amazon marketing', 'channel marketing', 'crowdfunding'
-  ])
-
   return (
     <div className='main-layout'>
-      <Sidebar />
+      <Sidebar clearState={clearState}/>
       <Details 
-        generalInfo={generalInfo} experienceInfo={experienceInfo} 
-        educationInfo={educationInfo} skills={skills} 
+        generalInfo={generalInfo} 
+        experienceInfo={experienceInfo} 
+        educationInfo={educationInfo} 
         onChange={handleSetGeneralInfo}
         onRemove={handleRemoveInfo}
         onAdd={handleAddInfo}

@@ -1,3 +1,31 @@
-.sidebar-container {
-    border: 2px solid powderblue;
+.sidebar ul {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.sidebar button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.sidebar button:focus {
+    outline: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+.sidebar button .reload:hover {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+.sidebar li {
+    border-radius: 15px;
+    background-color: powderblue;
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5rem;
 }

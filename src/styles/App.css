@@ -7,3 +7,22 @@
     width: 100vw;
     height: 100vh;
 }
+
+@media print {
+    .sidebar, .details {
+        display: none !important;
+    }
+
+    @page:first {
+        margin: 0cm;
+    }
+    @page:last {
+        margin: 5cm;
+    }
+    @page:left {
+        margin: 2cm 1.5cm 2cm 2cm;
+    }
+    @page:right {
+        margin: 2cm 2cm 2cm 1.5cm;
+    }
+}
