@@ -1,15 +1,107 @@
-.main-layout {
+#root {
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+}
+
+a, a:link, a:visited {
+    color: black;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+header, footer {
+    background-color: whitesmoke;
+    padding: 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-layout {
+    display: flex; 
+    flex: 1;
     justify-content: center;
     gap: 50px;
     padding: 20px;
     background-color: rgb(51, 53, 54);
-    width: 100vw;
-    height: 100vh;
+}
+
+
+@media (max-width: 1200px) {
+
+    .main-layout {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .sidebar button {
+        justify-content: center !important;
+    }
+
+    .sidebar ul {
+        justify-content: space-evenly;
+        flex-direction: row !important;
+    }
+
+    .details {
+        width: 88%;
+    }
+
+    .details-container {
+        width: 100% !important;
+    }
+    
+    .details-sub-container {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 620px) {
+
+    #root {
+        min-width: 325px;
+    }
+
+    .resume-container {
+        font-size: 0.8rem;
+        width: 95vw !important;
+    }
+
+    .sidebar button {
+        width: fit-content !important;
+    }
+
+    .main-layout {
+        gap: 20px;
+    }
+
+    .resume-container {
+        min-height: fit-content !important;
+    }
+
+    .card span:nth-child(2) {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 200px;
+        justify-content: flex-end;
+    }
+
+    button p {
+        display: none;
+    }
 }
 
 @media print {
-    .sidebar, .details {
+    .sidebar, .details, header, footer {
         display: none !important;
     }
 
@@ -24,40 +116,6 @@
     }
     @page:right {
         margin: 2cm 2cm 2cm 1.5cm;
-    }
-}
-
-@media (max-width: 1200px) {
-    .main-layout {
-        flex-direction: column-reverse;
-    }
-
-    .resume {
-        overflow: scroll;
-    }
-
-    .sidebar ul {
-        justify-content: space-evenly;
-        flex-direction: row !important;
-    }
-
-    .details-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100% !important;
-        max-width: 595px;
-    }
-    
-    .details-sub-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: powderblue;
-        width: 100% !important;
-        height: fit-content;
-        border-radius: 15px;
-        padding: 20px;
     }
 }
 

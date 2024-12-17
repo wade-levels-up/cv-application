@@ -1,6 +1,6 @@
 import '/src/styles/Sidebar.css'
 import Icon from '@mdi/react';
-import { mdiPrinter, mdiReload } from '@mdi/js';
+import { mdiPrinter, mdiReload, mdiDownload } from '@mdi/js';
 
 
 export default function Sidebar({ clearState }) {
@@ -15,12 +15,20 @@ export default function Sidebar({ clearState }) {
             <ul>
                 <li>
                     <button onClick={handlePrint}>
-                        <Icon path={mdiPrinter} size={2} />
+                    <Icon path={mdiPrinter} size={1} /> 
+                    <p>Print</p>
                     </button>
                 </li>
                 <li>
                     <button onClick={clearState} className='reload'>
-                        <Icon path={mdiReload} size={2} />
+                    <Icon path={mdiReload} size={1} />
+                    <p>Clear</p>
+                    </button>
+                </li>
+                <li>
+                    <button onClick={clearState} className='reload'>
+                    <Icon path={mdiDownload} size={1} />
+                    <p>Download PDF</p>
                     </button>
                 </li>
             </ul>

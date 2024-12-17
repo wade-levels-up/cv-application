@@ -1,13 +1,19 @@
 .sidebar ul {
     display: flex;
-    gap: 1rem;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .sidebar button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    color: whitesmoke;
+    width: 140px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
 }
 
 .sidebar button:focus {
@@ -23,8 +29,12 @@
 
 
 .sidebar li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
-    background-color: powderblue;
+    background-color: transparent;
+    border: 1px solid powderblue;
     height: fit-content;
     width: fit-content;
     padding: 0.5rem;

@@ -9,7 +9,7 @@ export default function Resume({ generalInfo, experienceInfo, educationInfo }) {
     return (
      <div className='resume'>
         <div className='resume-container'>
-            <div className='overlay'></div>
+        
             <div className='resume-header'>
                 <h1>{generalInfo.name}</h1>
                 <div>

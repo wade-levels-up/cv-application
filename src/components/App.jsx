@@ -3,6 +3,10 @@ import '/src/styles/App.css'
 import Sidebar from './Sidebar'
 import Details from './Details'
 import Resume from './Resume'
+import Icon from '@mdi/react';
+import { mdiGithub } from '@mdi/js';
+
+
 
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
@@ -136,19 +140,29 @@ export default function App() {
   }
 
   return (
-    <div className='main-layout'>
-      <Sidebar clearState={clearState}/>
-      <Details 
-        generalInfo={generalInfo} 
-        experienceInfo={experienceInfo} 
-        educationInfo={educationInfo} 
-        onChange={handleSetGeneralInfo}
-        onRemove={handleRemoveInfo}
-        onAdd={handleAddInfo}
-        onUpdate={handleUpdateInfo}
-      />
-      <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
-    </div>
+    <>
+      <header>
+        <h1>Resume Generator</h1>
+      </header>
+      <main className='main-layout'>
+      <Details
+          generalInfo={generalInfo}
+          experienceInfo={experienceInfo}
+          educationInfo={educationInfo}
+          onChange={handleSetGeneralInfo}
+          onRemove={handleRemoveInfo}
+          onAdd={handleAddInfo}
+          onUpdate={handleUpdateInfo}
+        />
+        <Resume generalInfo={generalInfo} experienceInfo={experienceInfo} educationInfo={educationInfo} />
+        <Sidebar clearState={clearState}/>
+      </main>
+      <footer>
+        <a href="https://github.com/wade-levels-up" target='blank'>
+          <Icon path={mdiGithub} size={1.3} />
+        </a> Created by Wade Foster
+      </footer>
+    </>
   )
 }
 
