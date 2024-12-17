@@ -125,21 +125,37 @@ footer span {
 }
 
 @media print {
-    .sidebar, .details, header, footer {
-        display: none !important;
+    body {
+        margin: 0;
+        padding: 0;
     }
 
-    @page:first {
-        margin: 0cm;
+    .main-layout {
+        display: block;
+        width: 100%;
+        max-width: 800px; 
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white; 
     }
-    @page:last {
-        margin: 5cm;
+
+    header, footer, .details, .sidebar {
+        display: none !important;
+        background-color: white;
+        padding: 1rem;
     }
-    @page:left {
-        margin: 2cm 1.5cm 2cm 2cm;
+
+    .resume-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: white;
     }
-    @page:right {
-        margin: 2cm 2cm 2cm 1.5cm;
+
+    @page {
+        size: A4;
+        margin: 0;
     }
 }
 
