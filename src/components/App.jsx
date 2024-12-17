@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import Details from './Details'
 import Resume from './Resume'
 import Icon from '@mdi/react';
-import { mdiGithub } from '@mdi/js';
+import { mdiGithub, mdiReact } from '@mdi/js';
 
 
 
@@ -144,7 +144,9 @@ export default function App() {
       <footer>
         <a href="https://github.com/wade-levels-up" target='blank'>
           <Icon path={mdiGithub} size={1.3} />
-        </a> Created by Wade Foster
+        </a>Built with React by Wade<span>
+          <Icon path={mdiReact} size={1.3} />
+        </span>
       </footer>
     </>
   )
