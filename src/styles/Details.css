@@ -31,6 +31,22 @@ form input {
     padding: 5px 5px 5px 10px;
     border-radius: 6px;
     border: none;
+    font-size: 1rem;
+}
+
+input[type="month"] {
+    width: 70%; /* Set a consistent width */
+    padding: 5px 5px 5px 10px; /* Add padding for better appearance */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 6px; /* Add border radius for rounded corners */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    font-size: 16px; /* Set a consistent font size */
+}
+
+/* Additional styles for hover and focus states */
+input[type="month"]:hover, input[type="date"]:focus {
+    border-color: #888; /* Change border color on hover and focus */
+    outline: none; /* Remove default outline */
 }
 
 .textarea-container {
@@ -69,6 +85,7 @@ form button:hover, button:focus {
     width: fit-content;
     padding: 5px 15px;
     color: whitesmoke;
+    border: 1px solid whitesmoke;
 }
 
 .detailsTab {

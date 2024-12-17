@@ -53,11 +53,11 @@ export default function EducationForm({ onAdd, hideForms, onUpdate, formVisibili
                 <input value={formState.school} onInput={handleInput} type='text' name='school' id='school' placeholder='Enter school name' required maxLength='50'/>
             </div>
             <div>
-                <label htmlFor='startDate'>Start Date </label>
+                <label htmlFor='startDate'>Start </label>
                 <input value={formState.startDate} onInput={handleInput} type='month' name='startDate' id='startDate' required/>
             </div>
             <div>
-                <label htmlFor='endDate'>End Date </label>
+                <label htmlFor='endDate'>End </label>
                 <input value={formState.endDate} onInput={handleInput} type='month' name='endDate' id='endDate' required/>
             </div>
             <div>
