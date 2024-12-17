@@ -108,6 +108,14 @@ form button:hover, button:focus {
     cursor: pointer;
 }
 
+.details-sub-container h2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
 .visible {
     display: block;
 }

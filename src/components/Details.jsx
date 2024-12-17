@@ -3,7 +3,7 @@ import '/src/styles/Details.css'
 import WorkExpForm from './WorkExpForm';
 import EducationForm from './EducationForm';
 import Icon from '@mdi/react';
-import { mdiDelete, mdiPlus, mdiPencil  } from '@mdi/js';
+import { mdiDelete, mdiPlus, mdiPencil, mdiAccountTie, mdiBriefcase, mdiSchool, mdiWrench } from '@mdi/js';
 
 
 export default function Details({ generalInfo, experienceInfo, educationInfo, onChange, onRemove, onAdd, onUpdate }) {
@@ -29,7 +29,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, on
         <div className='details'>
             <div className='details-container'>
                 <div className='details-sub-container'>
-                    <h2>Personal</h2>
+                    <h2><Icon path={mdiAccountTie} size={1} /> Personal</h2>
                     <form action='' method=''>
                         <div>
                             <label htmlFor='name'>Name </label>
@@ -50,7 +50,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, on
                     </form>
                 </div>
                 <div className='details-sub-container'>
-                    <h2>Work Experience</h2>
+                    <h2><Icon path={mdiBriefcase} size={1} /> Work Experience</h2>
                     <ul>
                         {experienceInfo.map((job) => {
                             let formStatus = 'hidden';
@@ -86,7 +86,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, on
                     </ul>
                 </div>
                 <div className='details-sub-container'>
-                    <h2>Education</h2>
+                    <h2><Icon path={mdiSchool} size={1} /> Education</h2>
                     <ul>
                         {educationInfo.map((item) => {
                             let formStatus = 'hidden';
@@ -122,7 +122,7 @@ export default function Details({ generalInfo, experienceInfo, educationInfo, on
                     </ul>
                 </div>
                 <div className='details-sub-container'>
-                    <h2>Skills</h2>
+                    <h2><Icon path={mdiWrench} size={1} /> Skills</h2>
                     <form action='' method=''>
                         <div className='textarea-container'>
                             <label htmlFor='skills'>Skills </label>
