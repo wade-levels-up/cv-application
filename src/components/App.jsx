@@ -54,14 +54,44 @@ export default function App() {
 
   function clearState() {
     setGeneralInfo({
-      name: '',
-      email: '',
-      phone: '',
-      location: '',
-      skills: ''
+      name: 'Enter Name',
+      email: 'john_doe@gmail.com',
+      phone: '000',
+      location: 'City',
+      skills: 'Fill in your skills'
     });
-    setExperienceInfo([]);
-    setEducationInfo([]);
+    setExperienceInfo([
+      {
+        id: crypto.randomUUID(),
+        company: 'Company Name',
+        startDate: '1990-01',
+        endDate: '1990-12',
+        title: 'Job Title',
+        location: 'City',
+        response: [
+          'Responsibility of job #1',
+          'Responsibility of job #2'
+        ],
+        achievements: [
+          'Achievements of job #1'
+        ]
+      }
+    ]);
+    setEducationInfo([
+      {
+        id: crypto.randomUUID(),
+        school: 'School / University',
+        startDate: '1990-01',
+        endDate: '1990-12',
+        degree: 'Title of degree or course',
+        location: 'City',
+        details: [
+          'Details #1',
+          'Details #2',
+          'Details #3'
+        ]
+      }
+    ]);
   }
 
   function handleSetGeneralInfo(e) {
