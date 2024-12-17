@@ -5,6 +5,10 @@
     flex-direction: column;
 }
 
+input {
+    font-size: 16px;
+}
+
 a, a:link, a:visited {
     color: black;
 }
@@ -32,7 +36,7 @@ footer {
     justify-content: center;
     gap: 50px;
     padding: 20px;
-    background-color: rgb(51, 53, 54);
+    background-color: rgb(27, 31, 33);
 }
 
 

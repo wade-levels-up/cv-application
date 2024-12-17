@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font-family: sans-serif;
+    font-family: sans-serif, system-ui;
     background-color: white;
     padding: 15px;
     width: 595px;
