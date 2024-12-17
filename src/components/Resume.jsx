@@ -8,7 +8,7 @@ import { mdiPhone, mdiMapMarker, mdiEmail } from '@mdi/js';
 export default function Resume({ generalInfo, experienceInfo, educationInfo }) {
     return (
      <div className='resume'>
-        <div className='resume-container'>
+        <div id='resume-container' className='resume-container'>
         
             <div className='resume-header'>
                 <h1>{generalInfo.name}</h1>

@@ -10,44 +10,28 @@ import { mdiGithub } from '@mdi/js';
 
 export default function App() {
   const [generalInfo, setGeneralInfo] = useState({
-    name: 'Wade Foster',
-    email: 'not.wades.email@gmail.com',
-    phone: '0418 000 3214',
-    location: 'Melbourne',
-    skills: 'General planning, staff management, handling money, managing stock levels'
+    name: 'Elliot Alderson',
+    email: 'not.elliot@fsociety.org',
+    phone: '0123 123 123',
+    location: 'New York City',
+    skills: 'Cybersecurity analyst with a proven track record in network security, penetration testing, and system hacking. Possessing a deep understanding of complex systems and a keen eye for vulnerabilities. Adept at problem-solving and critical thinking, with a strong focus on ethical hacking practices.'
   })
 
   const [experienceInfo, setExperienceInfo] = useState([
     {
       id: crypto.randomUUID(),
-      company: 'E-Corp',
-      startDate: '2017-10',
-      endDate: '2022-11',
-      title: 'Chief Technical Officer',
+      company: 'Allsafe Cybersecurity',
+      startDate: '2015-06',
+      endDate: '2016-12',
+      title: 'Cybersecurity Analyst',
       location: 'New York',
       response: [
-        'Manage staff members and their responsibilities',
-        'Wear expensive suits'
+        'Conducted vulnerability assessments and penetration testing on various networks and systems',
+        'Identified and exploited system weaknesses to improve security posture',
+        'Collaborated with cross-functional teams to address security concerns'
       ],
       achievements: [
-        'Achievement #1',
-        'Achievement #2'
-      ]
-    },
-    {
-      id: crypto.randomUUID(),
-      company: 'MM Electrical Merchandising',
-      startDate: '2017-10',
-      endDate: '2019-11',
-      title: 'Internal Sales',
-      location: 'Melbourne',
-      response: [
-        'Serve customers',
-        'Count stock'
-      ],
-      achievements: [
-        'Achievement #1',
-        'Achievement #2'
+        'Infiltrated Evil-Corp'
       ]
     }
   ])
@@ -55,15 +39,15 @@ export default function App() {
   const [educationInfo, setEducationInfo] = useState([
     {
       id: crypto.randomUUID(),
-      school: 'University Name',
-      startDate: '2020-10',
-      endDate: '2021-03',
+      school: 'University Of Mr.Robot',
+      startDate: '2010-01',
+      endDate: '2014-12',
       degree: 'Computer Science',
-      location: 'City, Street',
+      location: 'New York',
       details: [
-        'List your honors like summa cum laude or Economics Honors Society',
-        'Studied abroad in City, Country during spring/fall 20YY semester (University Name)',
-        'Any other fun stuff like varsity sports, fraternity/sorority, or something that gives you a little color'
+        'Successfully hacked and secured numerous complex systems',
+        'Recognized for exceptional problem-solving and analytical skills',
+        'Demonstrated a strong commitment to ethical hacking principles'
       ]
     }
   ])
